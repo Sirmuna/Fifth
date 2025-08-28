@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Special Invitation</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background: radial-gradient(circle at top, #0d0d0d, #000);
+        color: #fff;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url(./img/cuteblack.jpg);
+        background-position: center;
+        height: 100vh;
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: -2;
+        mix-blend-mode: overlay;
+      }
+
+      .container {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+      }
+
+      .typewriter {
+        color: #e6b3ff;
+        font-size: 1.8rem;
+        line-height: 1.6;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0 auto;
+        border-right: 3px solid #ff69b4;
+        text-shadow: 0 0 20px rgba(230, 179, 255, 0.3);
+        min-height: 2rem;
+        display: inline-block;
+      }
+
+      h1,
+      p {
+        opacity: 0;
+        animation: fadeIn 2s forwards;
+      }
+
+      h1 {
+        font-size: 2rem;
+        color: #f8c34d;
+        text-shadow: 0 0 15px rgba(248, 195, 77, 0.7);
+      }
+
+      p {
+        font-size: 1.2rem;
+        margin-top: 15px;
+      }
+
+      .btn {
+        margin-top: 40px;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        background: linear-gradient(135deg, #f8c34d, #ff6b81);
+        color: #000;
+        font-weight: bold;
+        box-shadow: 0 0 15px rgba(248, 195, 77, 0.7);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(255, 107, 129, 0.9);
+      }
+
+      .hidden {
+        display: none;
+      }
+      .reveal {
+        animation: fadeInUp 2s forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Floating Love Emojis */
+      .emoji {
+        position: absolute;
+        font-size: 2rem;
+        animation: floatUp 6s linear infinite;
+        cursor: pointer;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) scale(0.8);
+          opacity: 0.9;
+        }
+        100% {
+          transform: translateY(-800px) scale(1.2);
+          opacity: 0;
+        }
+      }
+
+      /* Popup message */
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #111;
+        color: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 25px rgba(255, 107, 129, 0.9);
+        display: none;
+        z-index: 999;
+        max-width: 80%;
+      }
+
+      /* Game Section Styles */
+      .game-title {
+        color: #ff69b4;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-shadow: 0 0 20px rgba(255, 105, 180, 0.7);
+      }
+
+      .game-instruction {
+        color: #e6b3ff;
+        font-size: 1.1rem;
+        margin: 10px 0;
+        line-height: 1.5;
+      }
+
+      .score-container {
+        margin: 20px 0;
+        padding: 15px;
+        background: rgba(255, 105, 180, 0.1);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 105, 180, 0.3);
+      }
+
+      .score {
+        color: #f8c34d;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        .typewriter {
+          font-size: 1.2rem;
+          min-height: 1.5rem;
+          margin: 0 20px;
+          border-right: 2px solid #ff69b4;
+        }
+
+        h1 {
+          font-size: 1.5rem;
+          margin: 0 20px;
+        }
+
+        .btn {
+          padding: 12px 24px;
+          font-size: 1rem;
+          margin-top: 30px;
+        }
+
+        .container {
+          padding: 0 20px;
+        }
+
+        .popup {
+          padding: 15px;
+          max-width: 90%;
+          font-size: 0.9rem;
+        }
+
+        .emoji {
+          font-size: 1.5rem;
+        }
+
+        .game-title {
+          font-size: 1.3rem;
+        }
+
+        .game-instruction {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .typewriter {
+          font-size: 1rem;
+          min-height: 1.2rem;
+        }
+
+        h1 {
+          font-size: 1.2rem;
+        }
+
+        .btn {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+        }
+
+        #special {
+          font-size: 1.1rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+
+        .game-title {
+          font-size: 1.1rem;
+        }
+
+        .game-instruction {
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+
+    <div class="container" id="step1">
+      <h1>Hey Becca…</h1>
+      <div class="typewriter" id="typewriter-text"></div>
+      <button class="btn" onclick="nextStep()">Open Your Invitation 🖤</button>
+    </div>
+
+    <div class="container hidden" id="step2">
+      <h1 class="reveal">
+        This is more than just a date, it’s a memory in the making…
+      </h1>
+      <button class="btn" onclick="nextStep2()">Reveal Details ✨</button>
+    </div>
+
+    <div class="container hidden" id="step3">
+      <h1 class="reveal" id="special">🌹Our Special Date🌹</h1>
+      <p class="reveal">📅 Date: <strong>5th September, 2025</strong></p>
+      <p class="reveal">🕰️ Time: <strong>4:00 PM</strong></p>
+      <p class="reveal">📍 Venue: <strong>UNDISCLOSED</strong></p>
+      <button class="btn" onclick="finalStep()">I’ll Be There ❤️</button>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup" id="popup"></div>
+
+    <!-- Mini Romantic Game Section -->
+    <div class="container hidden" id="gameSection">
+      <h1 class="game-title reveal">💖 Catch the Hearts Game 💖</h1>
+      <p class="game-instruction reveal">
+        Click on the floating hearts to reveal romantic messages!
+      </p>
+      <p class="game-instruction reveal">See how many you can catch... 💕</p>
+      <div class="score-container reveal">
+        <span class="score">Hearts caught: <span id="scoreCount">0</span></span>
+      </div>
+      <button class="btn" onclick="restartGame()">Play Again 🔄</button>
+    </div>
+
+    <script>
+      // Enhanced Typewriter Effect with cursor blinking
+      function typeWriter(text, elementId, speed = 80) {
+        let i = 0;
+        const element = document.getElementById(elementId);
+        const cursor = "|";
+
+        // Clear any existing content and add cursor
+        element.innerHTML = cursor;
+
+        function typing() {
+          if (i < text.length) {
+            // Remove cursor, add character, then add cursor back
+            element.innerHTML = text.substring(0, i + 1) + cursor;
+            i++;
+            setTimeout(typing, speed);
+          } else {
+            // Final state - remove cursor when done
+            setTimeout(() => {
+              element.innerHTML = text;
+            }, 500);
+          }
+        }
+
+        // Start typing after a brief delay
+        setTimeout(typing, 500);
+      }
+
+      // Step navigation
+      function nextStep() {
+        document.getElementById("step1").classList.add("hidden");
+        document.getElementById("step2").classList.remove("hidden");
+      }
+      function nextStep2() {
+        document.getElementById("step2").classList.add("hidden");
+        document.getElementById("step3").classList.remove("hidden");
+      }
+      function finalStep() {
+        spawnEmojis();
+      }
+
+      // Floating Emojis + Popups
+      const messages = [
+        "Every moment with you feels like forever ❤️",
+        "If I had a flower for every thought of you, I’d walk in a garden forever 🌹",
+        "You are my favorite notification 💌",
+        "Loving you is my daily hobby 🖤",
+      ];
+
+      function spawnEmojis() {
+        setInterval(() => {
+          const emoji = document.createElement("div");
+          emoji.className = "emoji";
+          emoji.innerText = "❤️";
+          emoji.style.left = Math.random() * window.innerWidth + "px";
+          emoji.style.bottom = "0px";
+          emoji.style.animationDuration = 4 + Math.random() * 4 + "s";
+          emoji.onclick = () =>
+            showPopup(messages[Math.floor(Math.random() * messages.length)]);
+          document.body.appendChild(emoji);
+          setTimeout(() => emoji.remove(), 6000);
+        }, 1200);
+      }
+
+      // Popup
+      function showPopup(msg) {
+        const popup = document.getElementById("popup");
+        popup.innerText = msg;
+        popup.style.display = "block";
+        setTimeout(() => {
+          popup.style.display = "none";
+        }, 3000);
+      }
+
+      // Init typewriter
+      document.addEventListener("DOMContentLoaded", () => {
+        typeWriter(
+          "I have something special planned for us...",
+          "typewriter-text"
+        );
+      });
+    </script>
+  </body>
+</html>

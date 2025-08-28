@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Images -->
+    <div class="bg-images" id="bgImages">
+        <div class="bg-image">
+            <img src="./img/brown.jpg" alt="Romantic background">
+        </div>
+        <div class="bg-image">
+            <img src="./img/yellow.jpg" alt="Romantic background">
+        </div>
+        <div class="bg-image">
+            <img src="./img/cuteblack.jpg" alt="Romantic background">
+        </div>
+        <div class="bg-image">
+            <img src="./img/green.jpg" alt="Romantic background">
+        </div>
+        <div class="bg-image">
+            <img src="./img/white.jpg" alt="Romantic background">
+        </div>
+        <div class="bg-image">
+            <img src="./img/cuteblack.jpg" alt="Romantic background">
+        </div>       
+    </div>
+
+    <!-- Background Overlay -->
+    <div class="bg-overlay"></div>
+
+    <!-- Starry Background -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Floating Music Player -->
+    <div class="music-player">
+        <div class="play-button" id="playButton" onclick="toggleMusic()">
+            <span id="playIcon">▶</span>
+        </div>
+    </div>
+
+    <!-- Floating Hearts -->
+    <div class="floating-heart" style="top: 10%; left: 10%;" onclick="showSecret('You make my heart skip a beat! 💕')">💖</div>
+    <div class="floating-heart" style="top: 20%; right: 15%;" onclick="showSecret('Every moment with you is magical ✨')">💝</div>
+    <div class="floating-heart" style="top: 60%; left: 5%;" onclick="showSecret('You are my favorite person in the world 🌍')">💗</div>
+    <div class="floating-heart" style="bottom: 20%; right: 10%;" onclick="showSecret('I love you more than words can say 💫')">💕</div>
+
+    <div class="container">
+        <!-- Love Letter Intro -->
+        <section class="intro-section">
+            <div class="love-letter">
+                <div class="typewriter" id="typewriter-text">My Dearest Becca...</div>
+            </div>
+        </section>
+
+        <!-- Memory Timeline -->
+        <section class="memory-section fade-in-up">
+            <h2 class="section-title">Our Beautiful Journey</h2>
+            <div class="timeline">
+                <div class="memory-item fade-in-up">
+                    <div class="memory-content">
+                        <div class="memory-date">The First Hello</div>
+                        <div class="memory-text">The moment our eyes first met, I knew something magical was beginning. Your smile lit up the entire room and my heart.</div>
+                    </div>
+                    <div class="memory-dot"></div>
+                </div>
+                
+                <div class="memory-item fade-in-up">
+                    <div class="memory-content">
+                        <div class="memory-date">Our First Date</div>
+                        <div class="memory-text">Coffee turned into hours of conversation. Time seemed to stop as we discovered how perfectly our souls connected.</div>
+                    </div>
+                    <div class="memory-dot"></div>
+                </div>
+                
+                <div class="memory-item fade-in-up">
+                    <div class="memory-content">
+                        <div class="memory-date">First "I Love You"</div>
+                        <div class="memory-text">Under the starlit sky, those three words escaped my lips naturally, and when you said them back, my world became complete.</div>
+                    </div>
+                    <div class="memory-dot"></div>
+                </div>
+                
+                <div class="memory-item fade-in-up">
+                    <div class="memory-content">
+                        <div class="memory-date">Today</div>
+                        <div class="memory-text">Every day with you is a new adventure, a new reason to smile, and a new page in our beautiful love story.</div>
+                    </div>
+                    <div class="memory-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flip Cards Section -->
+        <section class="cards-section fade-in-up">
+            <h2 class="section-title">Hidden Love Notes</h2>
+            <div class="cards-container">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-title">Why I Smile</div>
+                            <div style="font-size: 3rem;">😊</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="card-message">Because every morning I wake up knowing I get to love you for another day. Your existence in my life is my daily dose of happiness.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-title">My Favorite Sound</div>
+                            <div style="font-size: 3rem;">🎵</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="card-message">Your laugh. It's like music to my ears, a symphony that makes my heart dance and reminds me that joy is real.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-title">What You Mean to Me</div>
+                            <div style="font-size: 3rem;">🌟</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="card-message">You are my North Star, my guiding light, my safe harbor in every storm. You make me want to be the best version of myself.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-title">My Promise</div>
+                            <div style="font-size: 3rem;">🤝</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="card-message">To love you with all my heart, to support your dreams, to be your partner in all of life's adventures, today and always.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proposal Section -->
+        <section class="proposal-section fade-in-up">
+            <div class="proposal-box">
+                <div class="proposal-message">
+                    My love, you have filled my life with colors I never knew existed. You've shown me what it means to love and be loved completely. Every day with you feels like a beautiful dream I never want to wake up from.
+                    <br><br>
+                    Will you continue this magical journey with me? Will you be my partner, my best friend, my everything, for all the days of our lives?
+                    <br><br>
+                    This website, like my love for you, was created with intention, care, and endless devotion.
+                </div>
+                <div class="signature">Intentionally, Sir Muna 💖</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Secret Message Popup -->
+    <div class="secret-popup" id="secretPopup">
+        <button class="close-popup" onclick="hideSecret()">×</button>
+        <div id="secretMessage"></div>
+    </div>
+
+    <script>
+        // Background image shuffle
+        function initBackgroundShuffle() {
+            const images = document.querySelectorAll('.bg-image');
+            let currentIndex = 0;
+
+            function showNextImage() {
+                images.forEach(img => img.classList.remove('active'));
+                images[currentIndex].classList.add('active');
+                currentIndex = (currentIndex + 1) % images.length;
+            }
+
+            showNextImage(); // Show first image
+            setInterval(showNextImage, 6000); // Change every 6 seconds
+        }
+
+        // Music player functionality
+        let audio = null;
+        let isPlaying = false;
+
+        function toggleMusic() {
+            const playButton = document.getElementById('playButton');
+            const playIcon = document.getElementById('playIcon');
+
+            if (!audio) {
+                // Create audio element with a romantic song URL
+                // Using a royalty-free romantic song
+                audio = new Audio('./audio/Soft & Unbreakable (male).mp3');
+                audio.loop = true;
+                audio.volume = 0.3;
+                
+                // For a real implementation, replace with your preferred romantic song URL
+                // audio = new Audio('your-romantic-song-url.mp3');
+            }
+
+            if (isPlaying) {
+                audio.pause();
+                playIcon.textContent = '▶';
+                playButton.classList.remove('playing');
+                isPlaying = false;
+            } else {
+                audio.play().catch(e => {
+                    console.log('Audio play failed:', e);
+                    // Fallback: show a message or handle gracefully
+                });
+                playIcon.textContent = '⏸';
+                playButton.classList.add('playing');
+                isPlaying = true;
+            }
+        }
+
+        // Create stars with enhanced effect
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 150;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 4 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Typewriter effect
+        function typeWriter() {
+            const text = "My Dearest Love...";
+            const element = document.getElementById('typewriter-text');
+            element.style.width = '0';
+            element.style.whiteSpace = 'nowrap';
+            element.style.overflow = 'hidden';
+            
+            setTimeout(() => {
+                element.style.animation = 'typing 3s steps(' + text.length + ', end) forwards, blink-caret 0.75s step-end infinite';
+            }, 2000);
+        }
+
+        // Show secret message
+        function showSecret(message) {
+            const popup = document.getElementById('secretPopup');
+            const messageDiv = document.getElementById('secretMessage');
+            messageDiv.textContent = message;
+            popup.classList.add('show');
+        }
+
+        // Hide secret message
+        function hideSecret() {
+            const popup = document.getElementById('secretPopup');
+            popup.classList.remove('show');
+        }
+
+        // Scroll animations
+        function observeElements() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.fade-in-up, .memory-item').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Floating hearts random movement
+        function animateHearts() {
+            const hearts = document.querySelectorAll('.floating-heart');
+            hearts.forEach(heart => {
+                setInterval(() => {
+                    const randomX = Math.random() * 20 - 10;
+                    const randomY = Math.random() * 20 - 10;
+                    heart.style.transform += ` translate(${randomX}px, ${randomY}px)`;
+                }, 3000);
+            });
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            initBackgroundShuffle();
+            createStars();
+            typeWriter();
+            observeElements();
+            animateHearts();
+
+            // Add smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Close popup when clicking outside
+            document.addEventListener('click', function(e) {
+                const popup = document.getElementById('secretPopup');
+                if (!popup.contains(e.target) && !e.target.classList.contains('floating-heart')) {
+                    hideSecret();
+                }
+            });
+        });
+
+        // Add enhanced sparkle effect on mouse move
+        document.addEventListener('mousemove', function(e) {
+            if (Math.random() > 0.92) {
+                const sparkle = document.createElement('div');
+                sparkle.style.position = 'fixed';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                sparkle.style.width = '6px';
+                sparkle.style.height = '6px';
+                sparkle.style.background = Math.random() > 0.5 ? '#ff69b4' : '#e6b3ff';
+                sparkle.style.borderRadius = '50%';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.zIndex = '1000';
+                sparkle.style.boxShadow = `0 0 10px ${sparkle.style.background}`;
+                sparkle.style.animation = 'twinkle 1.5s ease-out forwards';
+                document.body.appendChild(sparkle);
+
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 1500);
+            }
+        });
+    </script>
+</body>
+</html>

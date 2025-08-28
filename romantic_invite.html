@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Special Invitation</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background: radial-gradient(circle at top, #0d0d0d, #000);
+        color: #fff;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url(./img/cuteblack.jpg);
+        background-position: center;
+        height: 100vh;
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: -2;
+        mix-blend-mode: overlay;
+      }
+      .container {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+      }
+
+      .typewriter {
+        color: #e6b3ff;
+        font-size: 1.8rem;
+        line-height: 1.6;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0 auto;
+        border-right: 0px solid #ff69b4;
+        text-shadow: 0 0 20px rgba(230, 179, 255, 0.3);
+        min-height: 2rem;
+        display: inline-block;
+      }
+
+      h1,
+      p {
+        opacity: 0;
+        animation: fadeIn 2s forwards;
+      }
+
+      h1 {
+        font-size: 2rem;
+        color: #f8c34d;
+        text-shadow: 0 0 15px rgba(248, 195, 77, 0.7);
+      }
+      #special {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+        margin-top: 15px;
+      }
+
+      .btn {
+        margin-top: 40px;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        background: linear-gradient(135deg, #f8c34d, #ff6b81);
+        color: #000;
+        font-weight: bold;
+        box-shadow: 0 0 15px rgba(248, 195, 77, 0.7);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(255, 107, 129, 0.9);
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .reveal {
+        animation: fadeInUp 2s forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        .typewriter {
+          font-size: 1.2rem;
+          min-height: 1.5rem;
+          margin: 0 20px;
+          border-right: 2px solid #ff69b4;
+        }
+      }
+      @media (max-width: 480px) {
+        .typewriter {
+          font-size: 1rem;
+          min-height: 1.2rem;
+        }
+      }
+
+      /* floating hearts - improved heart shape */
+      .heart {
+        position: absolute;
+        bottom: -20px;
+        width: 20px;
+        height: 20px;
+        background: #ff69b4;
+        transform: rotate(45deg);
+        animation: floatUp 6s linear infinite;
+        opacity: 0.8;
+        box-shadow: 0 0 15px rgba(255, 105, 180, 0.7);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #ff69b4;
+      }
+      .heart::before {
+        top: -10px;
+        left: 0;
+      }
+      .heart::after {
+        left: -10px;
+        top: 0;
+      }
+
+      /* Add subtle glow and pulse effect on hover */
+      .heart:hover {
+        opacity: 1;
+        transform: rotate(45deg) scale(1.2);
+        box-shadow: 0 0 25px rgba(255, 105, 180, 0.9);
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) scale(0.8) rotate(45deg);
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(-800px) scale(1.2) rotate(45deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <!-- <img class="bg-images" src="./img/cuteblack.jpg" alt="cute becca" /> -->
+    <div class="container" id="step1">
+      <h1>Hey Becca…</h1>
+      <div class="typewriter" id="typewriter-text"></div>
+      <!-- <p>I have something special planned for us…</p> -->
+      <button class="btn" onclick="nextStep()">Open Your Invitation 🖤</button>
+    </div>
+
+    <div class="container hidden" id="step2">
+      <h1 class="reveal">
+        This is more than just a date, it’s a memory in the making…
+      </h1>
+      <button class="btn" onclick="nextStep2()">Reveal Details ✨</button>
+    </div>
+
+    <div class="container hidden" id="step3">
+      <h1 class="reveal" id="special">🌹Our Special Date🌹</h1>
+      <p class="reveal">📅 Date: <strong>5th September, 2025</strong></p>
+      <p class="reveal">🕰️ Time: <strong>4:00 PM</strong></p>
+      <p class="reveal">📍 Venue: <strong>UNDISCLOSED</strong></p>
+      <button class="btn" onclick="finalStep()">I'll be there 💖</button>
+    </div>
+
+    <!-- Game Section -->
+    <!-- <div class="container hidden" id="gameSection">
+      <h1 class="game-title reveal">💖 Catch the Hearts Game 💖</h1>
+      <p class="game-instruction reveal">Click on the floating hearts to reveal romantic messages!</p>
+      <p class="game-instruction reveal">See how many you can catch... 💕</p>
+      <div class="score-container reveal">
+        <span class="score">Hearts caught: <span id="scoreCount">0</span></span>
+      </div>
+      <button class="btn" onclick="restartGame()">Play Again 🔄</button>
+    </div> -->
+
+    <script>
+      // Enhanced Typewriter Effect with cursor blinking
+      function typeWriter(text, elementId, speed = 80) {
+        let i = 0;
+        const element = document.getElementById(elementId);
+        const cursor = "|";
+
+        // Clear any existing content and add cursor
+        element.innerHTML = cursor;
+
+        function typing() {
+          if (i < text.length) {
+            // Remove cursor, add character, then add cursor back
+            element.innerHTML = text.substring(0, i + 1) + cursor;
+            i++;
+            setTimeout(typing, speed);
+          } else {
+            // Final state - remove cursor when done
+            setTimeout(() => {
+              element.innerHTML = text;
+            }, 500);
+          }
+        }
+
+        // Start typing after a brief delay
+        setTimeout(typing, 500);
+      }
+
+      function nextStep() {
+        document.getElementById("step1").classList.add("hidden");
+        document.getElementById("step2").classList.remove("hidden");
+      }
+
+      function nextStep2() {
+        document.getElementById("step2").classList.add("hidden");
+        document.getElementById("step3").classList.remove("hidden");
+      }
+
+      function finalStep() {
+        // Create romantic floating hearts
+        spawnRomanticHearts();
+
+        // Show romantic message
+        showRomanticMessage();
+      }
+
+      function spawnRomanticHearts() {
+        // Clear any existing hearts first
+        document.querySelectorAll(".heart").forEach((heart) => heart.remove());
+
+        // Create multiple hearts with different styles and animations
+        for (let i = 0; i < 30; i++) {
+          setTimeout(() => {
+            createRomanticHeart();
+          }, i * 200); // Stagger the creation for a more natural effect
+        }
+
+        // Continue creating hearts periodically
+        setInterval(() => {
+          createRomanticHeart();
+        }, 800);
+      }
+
+      function createRomanticHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+
+        // Random position
+        heart.style.left = Math.random() * (window.innerWidth - 40) + "px";
+
+        // Random animation duration for variety
+        const duration = 4 + Math.random() * 8;
+        heart.style.animationDuration = duration + "s";
+
+        // Random size variation
+        const size = 15 + Math.random() * 15;
+        heart.style.width = size + "px";
+        heart.style.height = size + "px";
+
+        // Random color variation
+        const colors = ["#ff69b4", "#ff4d4d", "#ff85a2", "#ff97b7", "#ffb6c1"];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        heart.style.background = randomColor;
+        heart.style.setProperty("--heart-color", randomColor);
+
+        // Add glow effect
+        heart.style.boxShadow = `0 0 20px ${randomColor}, 0 0 40px ${randomColor}80`;
+
+        document.body.appendChild(heart);
+
+        // Remove heart after animation completes
+        setTimeout(() => {
+          if (heart.parentNode) {
+            heart.remove();
+          }
+        }, duration * 1000 + 1000);
+      }
+
+      function showRomanticMessage() {
+        const messages = [
+          "💖 I can't wait to see you! 💖",
+          "My heart is floating with excitement! 💕",
+          "You make my heart skip a beat! 💓",
+          "Every moment with you feels like forever 💖",
+          "You're the reason love songs make sense 💃❤️",
+          "Time flies whenever I'm with you ⏳⌛",
+          "You live rent free in my mind, Don't worry about rent 😇",
+        ];
+
+        const randomMessage =
+          messages[Math.floor(Math.random() * messages.length)];
+
+        // Create a floating message
+        const messageDiv = document.createElement("div");
+        messageDiv.style.position = "fixed";
+        messageDiv.style.top = "50%";
+        messageDiv.style.left = "50%";
+        messageDiv.style.transform = "translate(-50%, -50%)";
+        messageDiv.style.background = "rgba(0, 0, 0, 0.8)";
+        messageDiv.style.color = "#ff69b4";
+        messageDiv.style.padding = "20px 30px";
+        messageDiv.style.borderRadius = "15px";
+        messageDiv.style.fontSize = "1.5rem";
+        messageDiv.style.fontWeight = "bold";
+        messageDiv.style.zIndex = "1000";
+        messageDiv.style.textAlign = "center";
+        messageDiv.style.boxShadow = "0 0 30px rgba(255, 105, 180, 0.7)";
+        messageDiv.style.backdropFilter = "blur(10px)";
+        messageDiv.textContent = randomMessage;
+
+        document.body.appendChild(messageDiv);
+
+        // Remove message after 3 seconds
+        setTimeout(() => {
+          if (messageDiv.parentNode) {
+            messageDiv.style.opacity = "0";
+            messageDiv.style.transition = "opacity 1s ease";
+            setTimeout(() => {
+              if (messageDiv.parentNode) {
+                messageDiv.remove();
+              }
+            }, 1000);
+          }
+        }, 3000);
+      }
+
+      // Init typewriter
+      document.addEventListener("DOMContentLoaded", () => {
+        typeWriter(
+          "I have something special planned for us...",
+          "typewriter-text"
+        );
+      });
+    </script>
+  </body>
+</html>
